@@ -64,7 +64,7 @@ location_filter:
     - "Remote"
   block:
     # - "India"
-    # - "Bengaluru"
+    - "Bengaluru"
     # - "United Kingdom"
     # - "London"
     # - "Germany"
@@ -227,7 +227,8 @@ title_filter:
     - "Director"
     - "Manager"
     - "Senior"
-
+    - "Principal"
+    - "Devops"
     # Mobile
     - "iOS"
     - "Android"
@@ -837,12 +838,12 @@ tracked_companies:
     scan_query: 'site:careers.microsoft.com "Software Engineer" OR "AI" India OR Remote'
     enabled: true
 
-  - name: Amazon
-    provider: amazon
-    amazon:
-      normalized_country_code: [IND]
-      base_query: software engineer
-    enabled: true
+  # - name: Amazon
+  #   provider: amazon
+  #   amazon:
+  #     normalized_country_code: [IND]
+  #     base_query: software engineer
+  #   enabled: true
 
   - name: Google
     careers_url: https://careers.google.com/jobs/results
@@ -910,6 +911,40 @@ tracked_companies:
     scan_query: 'site:novumlogic.com "Software Engineer" OR "Java" OR "Developer"'
     enabled: true
 
+  # Ahmedabad — Product (added 2026-07-14)
+
+  - name: Motadata
+    careers_url: https://www.motadata.com/careers
+    scan_method: websearch
+    scan_query: 'site:motadata.com/careers OR site:nexthire.breezy.hr "Software Engineer" OR "Java" Ahmedabad'
+    enabled: true
+
+  - name: E2logy Software Solutions
+    careers_url: https://e2logy.com/careers
+    scan_method: websearch
+    scan_query: 'site:e2logy.com OR site:glassdoor.co.in "Java SpringBoot" E2logy Ahmedabad'
+    enabled: true
+
+  # Ahmedabad / Gandhinagar — Services (added 2026-07-14)
+
+  - name: Acute Informatics
+    careers_url: https://www.acuteinformatics.com/careers
+    scan_method: websearch
+    scan_query: 'site:acuteinformatics.com OR site:glassdoor.co.in "Java Developer" "Acute Informatics" Ahmedabad'
+    enabled: true
+
+  - name: CARE INFOTECH
+    careers_url: https://www.careinfotech.com/careers
+    scan_method: websearch
+    scan_query: 'site:careinfotech.com OR site:glassdoor.co.in "CARE INFOTECH" Java Ahmedabad'
+    enabled: true
+
+  - name: Serendipity Corporate Services
+    careers_url: https://serendipitycorp.com/careers
+    scan_method: websearch
+    scan_query: 'site:serendipitycorp.com OR site:indeed.co.in "Serendipity Corporate Services" Java Gandhinagar'
+    enabled: true
+
   # Remote — Product
 
   - name: Freshworks
@@ -967,7 +1002,6 @@ tracked_companies:
     enabled: true
 
   - name: InMobi
-    # Ashby slug invalid (404) — websearch fallback
     careers_url: https://www.inmobi.com/company/careers
     scan_method: websearch
     scan_query: 'site:inmobi.com "Software Engineer" OR "Backend" OR "Java"'

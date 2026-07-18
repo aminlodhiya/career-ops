@@ -1,0 +1,267 @@
+\documentclass[10pt, letterpaper]{article}
+
+% Packages:
+\usepackage[
+    ignoreheadfoot, % set margins without considering header and footer
+    top=1.2 cm, % seperation between body and page edge from the top
+    bottom=1.2 cm, % seperation between body and page edge from the bottom
+    left=1.8 cm, % seperation between body and page edge from the left
+    right=1.8 cm, % seperation between body and page edge from the right
+    footskip=1.0 cm, % seperation between body and footer
+    % showframe % for debugging 
+]{geometry} % for adjusting page geometry
+\usepackage{titlesec} % for customizing section titles
+\usepackage{tabularx} % for making tables with fixed width columns
+\usepackage{array} % tabularx requires this
+\usepackage[dvipsnames]{xcolor} % for coloring text
+\definecolor{primaryColor}{RGB}{0, 0, 0} % define primary color
+\usepackage{enumitem} % for customizing lists
+\usepackage{amsmath} % for math
+\usepackage[
+    pdftitle={Mahmadamin Lodhiya's CV},
+    pdfauthor={Mahmadamin Lodhiya},
+    pdfcreator={Mahmadamin Lodhiya},
+    colorlinks=true,
+    urlcolor=primaryColor
+]{hyperref} % for links, metadata and bookmarks
+\usepackage[pscoord]{eso-pic} % for floating text on the page
+\usepackage{calc} % for calculating lengths
+\usepackage{bookmark} % for bookmarks
+\usepackage{lastpage} % for getting the total number of pages
+\usepackage{changepage} % for one column entries (adjustwidth environment)
+\usepackage{paracol} % for two and three column entries
+\usepackage{ifthen} % for conditional statements
+\usepackage{needspace} % for avoiding page brake right after the section title
+\usepackage{iftex} % check if engine is pdflatex, xetex or luatex
+\usepackage{ragged2e}
+\usepackage{microtype}
+\usepackage{tabularx}
+\setlength{\parindent}{0pt}
+
+% Ensure that generate pdf is machine readable/ATS parsable:
+\ifPDFTeX
+    \input{glyphtounicode}
+    \pdfgentounicode=1
+    \usepackage[T1]{fontenc}
+    \usepackage[utf8]{inputenc}
+\fi
+
+\usepackage{charter}
+
+% Some settings:
+\raggedright
+\AtBeginEnvironment{adjustwidth}{\partopsep0pt} % remove space before adjustwidth environment
+\pagestyle{empty} % no header or footer
+\setcounter{secnumdepth}{0} % no section numbering
+\setlength{\parindent}{0pt} % no indentation
+\setlength{\topskip}{0pt} % no top skip
+\setlength{\columnsep}{0.15cm} % set column seperation
+\pagenumbering{gobble} % no page numbering
+
+\titleformat{\section}{\needspace{4\baselineskip}\bfseries\large}{}{0pt}{}[\vspace{1pt}\titlerule]
+
+\titlespacing{\section}{
+    % left space:
+    -1pt
+}{
+    % top space:
+    0.3 cm
+}{
+    % bottom space:
+    0.2 cm
+} % section title spacing
+
+\renewcommand\labelitemi{$\vcenter{\hbox{\small$\bullet$}}$} % custom bullet points
+\newenvironment{highlights}{
+    \begin{itemize}[
+        topsep=0.10 cm,
+        parsep=0.10 cm,
+        partopsep=0pt,
+        itemsep=0pt,
+        leftmargin=0 cm + 10pt
+    ]
+}{
+    \end{itemize}
+} % new environment for highlights
+
+
+\newenvironment{highlightsforbulletentries}{
+    \begin{itemize}[
+        topsep=0.10 cm,
+        parsep=0.10 cm,
+        partopsep=0pt,
+        itemsep=0pt,
+        leftmargin=10pt
+    ]
+}{
+    \end{itemize}
+} % new environment for highlights for bullet entries
+
+\newenvironment{onecolentry}{
+    \begin{adjustwidth}{
+        0 cm + 0.00001 cm
+    }{
+        0 cm + 0.00001 cm
+    }
+}{
+    \end{adjustwidth}
+} % new environment for one column entries
+
+\newenvironment{twocolentry}[2][]{
+    \onecolentry
+    \def\secondColumn{#2}
+    \setcolumnwidth{\fill, 4.5 cm}
+    \begin{paracol}{2}
+}{
+    \switchcolumn \raggedleft \secondColumn
+    \end{paracol}
+    \endonecolentry
+} % new environment for two column entries
+
+\newenvironment{threecolentry}[3][]{
+    \onecolentry
+    \def\thirdColumn{#3}
+    \setcolumnwidth{, \fill, 4.5 cm}
+    \begin{paracol}{3}
+    {\raggedright #2} \switchcolumn
+}{
+    \switchcolumn \raggedleft \thirdColumn
+    \end{paracol}
+    \endonecolentry
+} % new environment for three column entries
+
+\newenvironment{header}{
+    \setlength{\topsep}{0pt}\par\kern\topsep\centering\linespread{1.5}
+}{
+    \par\kern\topsep
+} % new environment for the header
+
+
+% save the original href command in a new command:
+\let\hrefWithoutArrow\href
+
+% new command for external links:
+
+
+\begin{document}
+    \newcommand{\AND}{\unskip
+        \cleaders\copy\ANDbox\hskip\wd\ANDbox
+        \ignorespaces
+    }
+    \newsavebox\ANDbox
+    \sbox\ANDbox{$|$}
+
+    \begin{header}
+        \fontsize{25 pt}{25 pt}\selectfont Mahmadamin Lodhiya
+        
+        \vspace{2 pt}
+        \normalsize
+        \mbox{\hrefWithoutArrow{mailto:aminlodhiya88@gmail.com}{aminlodhiya88@gmail.com}}%
+        \kern 5.0 pt%
+        \AND%
+        \kern 5.0 pt%
+        \mbox{\hrefWithoutArrow{tel:+91 9978465345}{+91 9978465345}}%
+        \kern 5.0 pt%
+        \AND%
+        \kern 5.0 pt%
+        \mbox{\hrefWithoutArrow{https://linkedin.com/in/aminlodhiya}{linkedin.com/in/aminlodhiya}}%
+        \kern 5.0 pt%
+        \AND%
+        \kern 5.0 pt%
+        \mbox{\hrefWithoutArrow{https://github.com/aminlodhiya}{github.com/aminlodhiya}}%
+         \kern 5.0 pt%
+        % \AND%
+        % \kern 5.0 pt%
+        % \mbox{\hrefWithoutArrow{https://leetcode.com/aminlodhiya}{Leetcode}}%
+    \end{header}
+    \vspace{5 pt - 0.3 cm}
+
+    \section{Summary}
+        \noindent\justifying
+        Backend Software Engineer with \textbf{2+ years} of experience designing and delivering secure, high-volume \textbf{Java (11+), Spring Boot, and JPA/Hibernate} microservices and REST APIs, with strong TDD/BDD, secure coding, and cloud-native (\textbf{Docker, Kubernetes, Azure}) practices.
+
+        
+    \section{Skills}
+        \noindent
+        \begin{tabularx}{\textwidth}{@{}lX@{}}
+        \textbf{Languages:} Java (11+), Python, SQL \\
+        \textbf{Backend:} Spring Boot, Spring Data JPA/Hibernate, REST APIs, Microservices, Gradle, Maven \\
+        \textbf{Testing:} JUnit, Mockito, TDD/BDD, Test Pyramid \\
+        \textbf{DevOps/Cloud:} Docker, Kubernetes (AKS), CI/CD, GitHub Actions, Microsoft Azure, Gitflow \\
+        \textbf{Security \& Concepts:} OWASP secure coding, VAPT/SBOM, OOP, Distributed Systems, API Design \\
+        \end{tabularx}
+
+    \section{Experience}
+        \begin{twocolentry}{July 2024 – Present}
+            \textbf{Associate Software Engineer}\, TrackWizz - TSS
+        \end{twocolentry}
+        \vspace{0.10 cm}
+        \begin{onecolentry}
+            \begin{highlights}
+
+            \item Designed and developed \textbf{Java Spring Boot} microservices with \textbf{Spring Data JPA/Hibernate} powering enterprise digital onboarding and identity verification workflows, reducing customer verification time from \textbf{5--7 minutes to under 0.5 seconds} while enabling fully automated processing.
+
+            \item Built scalable REST APIs for document processing, identity matching, and OCR integration, increasing processing capacity from approximately \textbf{1,200 manual verifications/day} to over \textbf{100,000 automated verifications/day}.
+
+            \item Designed a configurable rule-based matching engine that improved verification accuracy and supported multiple KYC workflows through customizable matching rules and thresholds, covered by \textbf{JUnit/Mockito} unit and integration tests written using \textbf{TDD} practices.
+            
+            \item Integrated Spring Boot microservices with Python-based OCR and AI services through REST APIs, enabling reliable real-time document extraction and end-to-end verification.
+            
+            \item \textbf{Containerized} backend applications using \textbf{Docker} and deployed them on \textbf{Azure Kubernetes Service (AKS)}, optimizing Docker images with \textbf{multi-stage builds} to reduce image size and improve resource utilization.
+            
+            \item Applied \textbf{secure coding practices} (OWASP guidelines) and resolved \textbf{170+ application} and \textbf{1,200+ container vulnerabilities} through SAST scanning, VAPT remediation, and SBOM management, following \textbf{Gitflow} branching and peer review.
+            \end{highlights}
+
+            \vspace{0.2 cm}
+            
+            \begin{twocolentry}{Jan 2024 -- June 2024}
+                \textbf{Associate Software Engineer - Intern}\, TrackWizz - TSS
+            \end{twocolentry}
+            \vspace{0.10 cm}
+            \end{onecolentry}
+            
+            \begin{onecolentry}
+            \begin{highlights}
+            
+            \item Developed RESTful APIs using \textbf{Java Spring Boot} under the guidance of senior engineers, gaining hands-on experience with unit testing, Git, PostgreSQL, and Docker in a production-ready codebase.
+            
+            \end{highlights}
+            \end{onecolentry}
+        
+    
+    \section{Projects}
+        \begin{twocolentry}{
+             % \href{https://github.com/aminlodhiya/Resume-Builder-Using-AI}{Source Code}
+        }
+            \textbf{\textbf{KYC Match Engine – Automated Identity Verification} }\end{twocolentry}
+
+        \vspace{0.10 cm}
+        \begin{onecolentry}
+            \begin{highlights}
+                \item Developed a configurable \textbf{Spring Boot} based KYC Match Engine to automate customer identity verification workflows using \textbf{Spring Data JPA/Hibernate}.
+                \item Implemented a rule based matching engine in Java to compare customer details with data extracted from ID images.
+                \item Designed fully configurable similarity rules with adjustable rules and thresholds.
+                \item Integrated with a Python OCR microservice via \textbf{REST APIs} for automated data extraction from ID images, with core matching logic covered by \textbf{JUnit/Mockito} unit tests.
+                \item Containerized applications using \textbf{Docker} and deployed on Azure Kubernetes Service \textbf{(AKS)} to ensure scalability, reliability, and high availability.
+                \item Tools Used: Java, Spring Boot, Spring Data JPA, REST APIs, Python, Flask API, PostgreSQL, Docker, K8s, JUnit, Mockito.
+            \end{highlights}
+        \end{onecolentry}
+
+        \vspace{0.2 cm}
+
+
+    \section{Education}
+        \begin{twocolentry}{
+            Aug 2020 - Mar 2024
+        }
+            \textbf{Government Engineering College- Rajkot}\end{twocolentry}
+
+        \vspace{0.10 cm}
+        \begin{onecolentry}
+            \begin{highlights}
+                \item Bachelor of Engineering in Computer Engineering.
+            \end{highlights}
+        \end{onecolentry}
+
+
+\end{document}

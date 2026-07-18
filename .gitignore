@@ -62,7 +62,7 @@ writing-samples/*
 config/profile.yml
 config/cv-facts.json
 config/benchmarks.yml
-portals.yml
+# portals.yml
 modes/_profile.md
 modes/_custom.md
 .update-dismissed
